@@ -1,7 +1,17 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../firebase/FirebaseProvider";
 
 
 const Navbar = () => {
+
+    const {user,logOut}=useContext(AuthContext)
+
+    const handleSignOut=()=>{
+        logOut()
+        
+            }
+        
 
     const navLinks = <>
         <li><NavLink className={({ isActive }) =>
@@ -29,9 +39,16 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link>
+                <p>{user?user.email:''}</p>
+                {
+                    user?
+                    <button className="btn bg-green-500 text-white text-lg" onClick={handleSignOut}>Sign Out</button>
+                    :
+                    <Link to="/login">
                     <button className="btn bg-green-500 text-white text-lg">Login</button>
                 </Link>
+                }
+                
             </div>
         </div>
     );

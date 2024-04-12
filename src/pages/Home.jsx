@@ -1,8 +1,10 @@
+import Swipper from "../components/Swipper";
+
 
 const Home = () => {
     return (
         <div>
-            <h2>home</h2>
+            <Swipper></Swipper>
         </div>
     );
 };
