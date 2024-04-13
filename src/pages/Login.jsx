@@ -31,15 +31,15 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/vDKM87h/E0-BB1937-6060-4-CAE-9946-E2-F755-C19-C73-1-201-a-scaled.jpg)` }}>
             <div>
-                <h2 className="text-center text-3xl my-10">Please Login</h2>
+                <h2 className="text-center text-white text-3xl my-10">Please Login</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="md:3/4 lg:w-1/2 mx-auto">
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text text-white">Email</span>
                         </label>
                         <input type="email" placeholder="Email" className="input input-bordered" {...register("email", { required: true })} />
                         {errors.email && <span className='text-red-500'>This field is required</span>}
@@ -47,7 +47,7 @@ const Login = () => {
                    
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text text-white">Password</span>
                         </label>
                         <div className="relative">
                             <input
@@ -72,7 +72,7 @@ const Login = () => {
                             {errors.password && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            <a href="#" className="label-text-alt link link-hover text-white">Forgot password?</a>
                         </label>
                     </div>
 

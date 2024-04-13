@@ -14,7 +14,7 @@ const Navbar = () => {
 
     const navLinks = <>
         <li><NavLink className={({ isActive }) =>
-            isActive ? 'text-[#23BE0A] border border-[#23BE0A] font-semibold' : 'font-semibold'
+            isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
         } to="/">Home</NavLink></li>
 
     </>
@@ -30,7 +30,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost text-xl"><span className="font-bold text-green-500 -mr-2">Home</span>Spotter</Link>
+                <Link to="/" className="btn btn-ghost text-xl"><span className="font-bold text-blue-600 -mr-2">Home</span>Spotter</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -44,10 +44,10 @@ const Navbar = () => {
                 </div>
                 {
                     user ?
-                        <button className="btn bg-green-500 text-white text-lg" onClick={handleSignOut}>Sign Out</button>
+                        <button className="btn bg-blue-600 text-white text-lg" onClick={handleSignOut}>Sign Out</button>
                         :
                         <Link to="/login">
-                            <button className="btn bg-green-500 text-white text-lg">Login</button>
+                            <button className="btn bg-blue-600 text-white text-lg">Login</button>
                         </Link>
                 }
 
