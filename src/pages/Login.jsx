@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../firebase/FirebaseProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { FaEye,FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
 
     const { signIn } = useContext(AuthContext)
-    const [showPassword,setShowPassword]=useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
 
     const handleLogin = e => {
@@ -43,7 +43,7 @@ const Login = () => {
                         </label>
                         <input type="email" name="email" placeholder="Email" className="input input-bordered" required />
                     </div>
-                    <div className="form-control">
+                    {/* <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
@@ -58,7 +58,37 @@ const Login = () => {
                          </span>
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
+                    </div> */}
+                    <div className="form-control relative">
+                        <label className="label">
+                            <span className="label-text">Password</span>
+                        </label>
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                placeholder="Password"
+                                className="input input-bordered w-full pr-10"
+                                required
+                            />
+                            <span
+                                className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                                onClick={() => {
+                                    setShowPassword(!showPassword)
+                                }}
+                            >
+                                {
+                                    showPassword
+                                        ? <FaEyeSlash />
+                                        : <FaEye />
+                                }
+                            </span>
+                        </div>
+                        <label className="label">
+                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                        </label>
                     </div>
+
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
                     </div>
