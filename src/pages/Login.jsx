@@ -1,22 +1,21 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../firebase/FirebaseProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import UseAuth from "../Hooks/UseAuth";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext)
+    const { signIn } = UseAuth()
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
     const [showPassword, setShowPassword] = useState(false)
 
 
-    const handleLogin = e => {
-        e.preventDefault()
-        const form = new FormData(e.currentTarget)
-        const email = form.get('email')
-        const password = form.get('password')
-
+    const onSubmit = data => {
+        const { email, password } = data;
 
         signIn(email, password)
             .then(result => {
@@ -35,30 +34,16 @@ const Login = () => {
             <div>
                 <h2 className="text-center text-3xl my-10">Please Login</h2>
 
-                <form onSubmit={handleLogin} className="md:3/4 lg:w-1/2 mx-auto">
+                <form onSubmit={handleSubmit(onSubmit)} className="md:3/4 lg:w-1/2 mx-auto">
 
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="Email" className="input input-bordered" required />
+                        <input type="email" placeholder="Email" className="input input-bordered" {...register("email", { required: true })} />
+                        {errors.email && <span className='text-red-500'>This field is required</span>}
                     </div>
-                    {/* <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input type={showPassword?"text":"password"} name="password" placeholder="Password" className="input input-bordered" required />
-                        <label className="label">
-                        <span className="absolute" onClick={()=>{
-                            setShowPassword(!showPassword)
-                         }}>
-                            {
-                                showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>
-                            }
-                         </span>
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
-                    </div> */}
+                   
                     <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Password</span>
@@ -69,7 +54,7 @@ const Login = () => {
                                 name="password"
                                 placeholder="Password"
                                 className="input input-bordered w-full pr-10"
-                                required
+                                {...register("password", { required: true })}
                             />
                             <span
                                 className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
@@ -83,6 +68,7 @@ const Login = () => {
                                         : <FaEye />
                                 }
                             </span>
+                            {errors.password && <span className='text-red-500'>This field is required</span>}
                         </div>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
