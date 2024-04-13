@@ -1,6 +1,6 @@
 [
     {
-      "image": "path/to/image1.jpg",
+      "image": "https://i.ibb.co/myPNWrV/maxresdefault.jpg",
       "estate_title": "Cozy Single-Family Home",
       "id": "001",
       "segment_name": "Residential",
@@ -13,7 +13,7 @@
       "View Property": "link/to/property1"
     },
     {
-      "image": "path/to/image2.jpg",
+      "image": "https://i.ibb.co/N6mvM3p/001-web.jpg",
       "estate_title": "Luxury Townhouse",
       "id": "002",
       "segment_name": "Residential",
@@ -26,7 +26,7 @@
       "View Property": "link/to/property2"
     },
     {
-      "image": "path/to/image3.jpg",
+      "image": "https://i.ibb.co/8BBk0d0/modern-apartment-exterior-design.jpg",
       "estate_title": "Modern Apartment",
       "id": "003",
       "segment_name": "Residential",
@@ -39,7 +39,7 @@
       "View Property": "link/to/property3"
     },
     {
-      "image": "path/to/image4.jpg",
+      "image": "https://i.ibb.co/gtqvLLC/DV-Alliance-Town-Center-Press-Release.jpg",
       "estate_title": "Senior Living Community",
       "id": "004",
       "segment_name": "Residential",
@@ -52,7 +52,7 @@
       "View Property": "link/to/property4"
     },
     {
-      "image": "path/to/image5.jpg",
+      "image": "https://i.ibb.co/2W0q1GX/Facebook-Sizing-Beach-Front.jpg",
       "estate_title": "Beachfront Vacation Rental",
       "id": "005",
       "segment_name": "Residential",
@@ -65,7 +65,7 @@
       "View Property": "link/to/property5"
     },
     {
-        "image": "path/to/image6.jpg",
+        "image": "https://i.ibb.co/HrCqbd1/Rustic-Mountain-Cabin-Retreat-Nicholas-Sonder-Architect-01-1-Kindesign.jpg",
         "estate_title": "Mountain Retreat Cabin",
         "id": "006",
         "segment_name": "Residential",
@@ -78,7 +78,7 @@
         "View Property": "link/to/property6"
       },
       {
-        "image": "path/to/image7.jpg",
+        "image": "https://i.ibb.co/m4ZDYcj/271416371.jpg",
         "estate_title": "City Loft",
         "id": "007",
         "segment_name": "Residential",
@@ -91,7 +91,7 @@
         "View Property": "link/to/property7"
       },
       {
-        "image": "path/to/image8.jpg",
+        "image": "https://i.ibb.co/0JZF4B3/1685329410095-e-2147483647-v-beta-t-4ter0srf5o-SYDK0l-MBkf4osn-IQ7-Jbyqh-Pbs-Qyo-PHf-I.jpg",
         "estate_title": "Family-Friendly Suburban Home",
         "id": "008",
         "segment_name": "Residential",
@@ -104,7 +104,7 @@
         "View Property": "link/to/property8"
       },
       {
-        "image": "path/to/image9.jpg",
+        "image": "https://i.ibb.co/qnpqmRv/Main-Bedroom-Presidential-Suite-Bed.jpg",
         "estate_title": "Executive Penthouse",
         "id": "009",
         "segment_name": "Residential",
