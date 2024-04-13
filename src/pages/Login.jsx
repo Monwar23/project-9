@@ -31,9 +31,9 @@ const Login = () => {
     }
 
     return (
-        <div className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/vDKM87h/E0-BB1937-6060-4-CAE-9946-E2-F755-C19-C73-1-201-a-scaled.jpg)` }}>
+        <div className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)` }}>
             <div>
-                <h2 className="text-center text-white text-3xl my-10">Please Login</h2>
+                <h2 className="text-center font-bold  text-white text-3xl my-10">Login Now !</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="md:3/4 lg:w-1/2 mx-auto">
 
@@ -80,7 +80,7 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
-                <p className="text-center mt-4">Do not have an Account ? Please <Link className="font-bold text-blue-600" to='/register'>Register</Link></p>
+                <p className="text-center text-white mt-4">Do not have an Account ? Please <Link className="font-bold text-blue-600 btn " to='/register'>Register</Link></p>
             </div>
             <ToastContainer></ToastContainer>
         </div>

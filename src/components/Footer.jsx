@@ -4,19 +4,19 @@ import { FaHouse } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content mt-20">
+        <footer className="footer p-10 bg-blue-200 text-base-content mt-20">
             <aside>
-              <FaHouse className="text-6xl"></FaHouse>
-                <Link to="/" className=" text-xl font-medium"><span className="font-bold text-green-500">Home</span>Spotter</Link>
+              <FaHouse className="text-6xl text-blue-600"></FaHouse>
+                <Link to="/" className=" text-xl font-medium"><span className="font-bold text-blue-600">Home</span>Spotter</Link>
             </aside>
-            <nav>
+            <nav className="text-black">
                 <h6 className="footer-title">ADVERTISERS</h6>
                 <a className="link link-hover">Advertise</a>
                 <a className="link link-hover">Add a property</a>
                 <a className="link link-hover">Customer Portal</a>
                 <a className="link link-hover">Community Voice</a>
             </nav>
-            <nav>
+            <nav className="text-black">
                 <h6 className="footer-title">SERVICES
                 </h6>
                 <a className="link link-hover">Single-family homes</a>
@@ -26,7 +26,7 @@ const Footer = () => {
                     housing</a>
                 <a className="link link-hover">senior living communities</a>
             </nav>
-            <nav>
+            <nav className="text-black">
                 <h6 className="footer-title">THE MARKETPLACE
                 </h6>
                 <a className="link link-hover">HomeSpotter</a>
@@ -35,7 +35,7 @@ const Footer = () => {
                 <a className="link link-hover">Homes.com</a>
                 <a className="link link-hover">Land.com</a>
             </nav>
-            <nav>
+            <nav className="text-black">
                 <h6 className="footer-title">ABOUT US</h6>
                 <a className="link link-hover">About Us</a>
                 <a className="link link-hover">Careers</a>

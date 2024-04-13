@@ -49,14 +49,15 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div  className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)`}}>
+            <div className="hero-overlay bg-opacity-60"></div>
             <div>
-                <h2 className="text-center text-3xl my-10">Please Register</h2>
+                <h2 className="text-white font-bold text-center text-3xl my-10">Register Now !</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="md:3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text text-white">Name</span>
                         </label>
                         <input type="name" placeholder="Name" className="input input-bordered"
                             {...register("Name", { required: true })} />
@@ -66,7 +67,7 @@ const Register = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Photo URL</span>
+                            <span className="label-text text-white">Photo URL</span>
                         </label>
                         <input type="text" placeholder="Photo URL" className="input input-bordered" {...register("image", { required: true })} />
                         {errors.image && (
@@ -75,7 +76,7 @@ const Register = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text text-white">Email</span>
                         </label>
                         <input type="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
                         {errors.email && (
@@ -84,7 +85,7 @@ const Register = () => {
                     </div>
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text text-white">Password</span>
                         </label>
                         <div className="relative">
                             <input
@@ -110,14 +111,14 @@ const Register = () => {
                             )}
                         </div>
                         <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            <a href="#" className="label-text-alt link link-hover text-white">Forgot password?</a>
                         </label>
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Register</button>
                     </div>
                 </form>
-                <p className="text-center mt-4">Already have an Account ? Please <Link className="font-bold text-blue-600" to='/login'>Login</Link></p>
+                <p className="text-center mt-4 text-white">Already have an Account ? Please <Link className="font-bold text-blue-600 btn" to='/login'>Login</Link></p>
             </div>
             <ToastContainer></ToastContainer>
         </div>
