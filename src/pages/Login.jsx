@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../firebase/FirebaseProvider";
-
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { FaEye,FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
 
     const { signIn } = useContext(AuthContext)
+    const [showPassword,setShowPassword]=useState(false)
+
 
     const handleLogin = e => {
         e.preventDefault()
@@ -17,9 +21,12 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                toast.success("Login successful!");
+
             })
             .catch(error => {
                 console.log(error);
+                toast.error(error.message)
             })
     }
 
@@ -40,8 +47,15 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
+                        <input type={showPassword?"text":"password"} name="password" placeholder="Password" className="input input-bordered" required />
                         <label className="label">
+                        <span className="absolute" onClick={()=>{
+                            setShowPassword(!showPassword)
+                         }}>
+                            {
+                                showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>
+                            }
+                         </span>
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                     </div>
@@ -51,6 +65,7 @@ const Login = () => {
                 </form>
                 <p className="text-center mt-4">Do not have an Account ? Please <Link className="font-bold text-blue-600" to='/register'>Register</Link></p>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

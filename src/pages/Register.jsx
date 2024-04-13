@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../firebase/FirebaseProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { FaEye,FaEyeSlash } from "react-icons/fa";
 
 
 const Register = () => {
 
     const {createUser}=useContext(AuthContext)
+    const [showPassword,setShowPassword]=useState(false)
 
     const handleRegister=e=>{
         e.preventDefault()
@@ -16,13 +20,25 @@ const Register = () => {
        const password = form.get('password')
     console.log(name,photo,email,password);
 
+
+    if (
+        !/(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(password)
+    ) {
+        toast.error(
+            "Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long."
+        );
+        return;
+    }
+
     // create user
     createUser(email,password)
     .then(result=>{
         console.log(result.user);
+        toast.success("Registration successful!");
     })
     .catch(error=>{
         console.log(error);
+        toast.error(error.message);
     })
 
 
@@ -57,7 +73,16 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                        <input
+                         type={showPassword?"text":"password"} 
+                         name="password" placeholder="password" className="input input-bordered" required />
+                         <span onClick={()=>{
+                            setShowPassword(!showPassword)
+                         }}>
+                            {
+                                showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>
+                            }
+                         </span>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
@@ -68,6 +93,7 @@ const Register = () => {
                 </form>
                 <p className="text-center mt-4">Already have an Account ? Please <Link className="font-bold text-blue-600" to='/login'>Login</Link></p>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
