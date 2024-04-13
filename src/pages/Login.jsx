@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 const Login = () => {
 
     const { signIn } = UseAuth()
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } ,reset} = useForm();
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -21,6 +21,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success("Login successful!");
+                reset()
 
             })
             .catch(error => {

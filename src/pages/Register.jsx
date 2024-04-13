@@ -14,7 +14,7 @@ const Register = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors },reset
     } = useForm();
 
 
@@ -37,6 +37,7 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success("Registration successful!");
+                reset()
             })
             .catch(error => {
                 console.log(error);
