@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import UseAuth from "../Hooks/UseAuth";
 import { useForm } from "react-hook-form";
+import SocialLogin from "../components/SocialLogin";
 
 const Login = () => {
 
@@ -34,6 +35,8 @@ const Login = () => {
                 toast.error(error.message)
             })
     }
+
+
 
     return (
         <div className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)` }}>
@@ -86,6 +89,7 @@ const Login = () => {
                     </div>
                 </form>
                 <p className="text-center text-white mt-4">Do not have an Account ? Please <Link className="font-bold text-blue-600 btn " to='/register'>Register</Link></p>
+                <SocialLogin></SocialLogin>
             </div>
             <ToastContainer></ToastContainer>
         </div>
