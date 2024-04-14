@@ -1,121 +1,81 @@
-
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import UseAuth from "../Hooks/UseAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import UseAuth from "../Hooks/UseAuth";
-import { useForm } from "react-hook-form";
-
 
 const ProfileUpdate = () => {
+    const { user, updateUserProfile } = UseAuth();
+    const [name, setName] = useState(user.displayName || "");
+    const [email, setEmail] = useState(user.email || "");
+    const [photoURL, setPhotoURL] = useState(user.photoURL || "");
+    const passwordPlaceholder = "********"; 
 
-    const { createUser,updateUserProfile } = UseAuth()
-    const location=useLocation()
-    const navigate=useNavigate()
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
-
-
-    const [showPassword, setShowPassword] = useState(false)
-
-    const onSubmit = data => {
-        const { Name,image } = data;
-
-        
-
-        // create user
-        
-                updateUserProfile(Name,image)
-                .then(()=>{
-                    navigate(location?.state? location.state:'/')
-                })
-            .catch(error => {
-                console.log(error);
-                toast.error(error.message);
+    const handleSave = () => {
+        updateUserProfile(name, photoURL)
+            .then(() => {
+                toast.success("Profile updated successfully");
             })
-
-
-
-    }
+            .catch((error) => {
+                toast.error(error.message);
+            });
+    };
 
     return (
-        <div  className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)`}}>
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div>
-                <h2 className="text-white font-bold text-center text-3xl my-10">ProfileUpdated Now !</h2>
-
-                <form onSubmit={handleSubmit(onSubmit)} className="md:3/4 lg:w-1/2 mx-auto">
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Name</span>
-                        </label>
-                        <input type="name" placeholder="Name" className="input input-bordered"
-                            {...register("Name", { required: true })} />
-                        {errors.Name && (
-                            <span className="text-red-500">This field is required</span>
-                        )}
+        <div className="bg-cover bg-center mt-10" style={{ backgroundImage: "url('https://i.ibb.co/HrCqbd1/Rustic-Mountain-Cabin-Retreat-Nicholas-Sonder-Architect-01-1-Kindesign.jpg')" }}>
+            <div className="max-w-md mx-auto p-8 bg-blue-800 bg-opacity-20">
+                <h2 className="text-2xl font-bold mb-4 text-white text-center">Edit Your Profile</h2>
+                <form className="space-y-4">
+                    <div>
+                        <label htmlFor="name" className="block font-medium text-white">Name:</label>
+                        <input
+                            type="text"
+                            id="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        />
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Photo URL</span>
-                        </label>
-                        <input type="text" placeholder="Photo URL" className="input input-bordered" {...register("image", { required: true })} />
-                        {errors.image && (
-                            <span className="text-red-500">This field is required</span>
-                        )}
+                    <div>
+                        <label htmlFor="photoURL" className="block font-medium text-white">Photo URL:</label>
+                        <input
+                            type="text"
+                            id="photoURL"
+                            value={photoURL}
+                            onChange={(e) => setPhotoURL(e.target.value)}
+                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        />
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Email</span>
-                        </label>
-                        <input type="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
-                        {errors.email && (
-                            <span className="text-red-500">This field is required</span>
-                        )}
+                    <div>
+                        <label htmlFor="email" className="block font-medium text-white">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            disabled
+                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-white"
+                        />
                     </div>
-                    <div className="form-control relative">
-                        <label className="label">
-                            <span className="label-text text-white">Password</span>
-                        </label>
-                        <div className="relative">
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                placeholder="Password"
-                                className="input input-bordered w-full pr-10"
-                                {...register("password", { required: true })}
-                            />
-                            <span
-                                className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
-                                onClick={() => {
-                                    setShowPassword(!showPassword)
-                                }}
-                            >
-                                {
-                                    showPassword
-                                        ? <FaEyeSlash />
-                                        : <FaEye />
-                                }
-                            </span>
-                            {errors.password && (
-                                <span className="text-red-500">This field is required</span>
-                            )}
-                        </div>
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover text-white">Forgot password?</a>
-                        </label>
+                    <div>
+                        <label htmlFor="password" className="block font-medium text-white">Password:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={passwordPlaceholder}
+                            disabled
+                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-white"
+                        />
                     </div>
-                    <div className="form-control mt-6">
-                        <button className="btn btn-primary">ProfileUpdated</button>
-                    </div>
+                    
+                    <button
+                        type="button"
+                        onClick={handleSave}
+                        className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
+                    >
+                        Save
+                    </button>
                 </form>
-                <p className="text-center mt-4 text-white">Already have an Account ? Please <Link className="font-bold text-blue-600 btn" to='/login'>Login</Link></p>
             </div>
-            <ToastContainer></ToastContainer>
+            <ToastContainer />
         </div>
     );
 };
