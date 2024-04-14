@@ -2,27 +2,16 @@ import { FaHouse } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import 'animate.css';
 
-const animationClasses = [
-    "animate__fadeInLeft",
-    "animate__fadeInRight",
-    "animate__fadeInUp",
-    "animate__fadeInDown"
-];
 
-const getRandomAnimationClass = () => {
-    const randomIndex = Math.floor(Math.random() * animationClasses.length);
-    return animationClasses[randomIndex];
-};
 
 
 const SingleHomes = ({ home }) => {
     const { image, estate_title, segment_name, description, status, id } = home
 
-    const animationClass = getRandomAnimationClass();
 
 
     return (
-        <div className={`max-w-xs mx-auto mb-8 animate__animated ${animationClass}`}>
+        <div className="max-w-xs mx-auto mb-8" >
             <div className="relative bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
                 <img className="w-full h-56 object-cover object-center" src={image} alt={estate_title} />
 

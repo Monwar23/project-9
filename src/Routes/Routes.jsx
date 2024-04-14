@@ -6,9 +6,9 @@ import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import DetailsHome from "../pages/DetailsHome";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
-import UpdateProfile from "../PrivateRoutes/UpdateProfilePrivate";
-import UpdateProfilePrivate from "../PrivateRoutes/UpdateProfilePrivate";
-import Extra from "../pages/Extra";
+import Activities from "../pages/Activities";
+import PrivateProfile from "../PrivateRoutes/PrivateProfile";
+import ProfileUpdate from "../pages/ProfileUpdate";
 
 const router = createBrowserRouter([
     {
@@ -31,16 +31,16 @@ const router = createBrowserRouter([
                 element: <Login></Login>,
             },
             {
-                path:'/updateProfile',
-                element:<UpdateProfilePrivate><UpdateProfile></UpdateProfile></UpdateProfilePrivate>
+                path:'/profileUpdate',
+                element:<PrivateProfile><ProfileUpdate></ProfileUpdate></PrivateProfile>
             },
             {
                 path: '/register',
                 element: <Register></Register>,
             },
             {
-                path:'/extra',
-                element:<Extra></Extra>
+                path:'/activities',
+                element:<Activities></Activities>
             }
         ]
     },

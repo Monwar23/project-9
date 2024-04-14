@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,7 +8,7 @@ import UseAuth from "../Hooks/UseAuth";
 import { useForm } from "react-hook-form";
 
 
-const Register = () => {
+const ProfileUpdate = () => {
 
     const { createUser,updateUserProfile } = UseAuth()
     const location=useLocation()
@@ -23,29 +24,16 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
 
     const onSubmit = data => {
-        const { email, password,Name,image } = data;
+        const { Name,image } = data;
 
-        if (
-            !/(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(password)
-        ) {
-            toast.error(
-                "Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long."
-            );
-            return;
-        }
-
-
+        
 
         // create user
-        createUser(email, password)
-            .then(result => {
-                console.log(result.user);
-                toast.success("Registration successful!");
+        
                 updateUserProfile(Name,image)
                 .then(()=>{
                     navigate(location?.state? location.state:'/')
                 })
-            })
             .catch(error => {
                 console.log(error);
                 toast.error(error.message);
@@ -59,7 +47,7 @@ const Register = () => {
         <div  className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)`}}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div>
-                <h2 className="text-white font-bold text-center text-3xl my-10">Register Now !</h2>
+                <h2 className="text-white font-bold text-center text-3xl my-10">ProfileUpdated Now !</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="md:3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
@@ -122,7 +110,7 @@ const Register = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Register</button>
+                        <button className="btn btn-primary">ProfileUpdated</button>
                     </div>
                 </form>
                 <p className="text-center mt-4 text-white">Already have an Account ? Please <Link className="font-bold text-blue-600 btn" to='/login'>Login</Link></p>
@@ -132,4 +120,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default ProfileUpdate;

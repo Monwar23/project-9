@@ -16,15 +16,17 @@ const Navbar = () => {
         <li><NavLink className={({ isActive }) =>
             isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
         } to="/">Home</NavLink></li>
-          <li><NavLink className={({ isActive }) =>
-            isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
-        } to="/register">Register</NavLink></li>
-          <li><NavLink className={({ isActive }) =>
-            isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
-        } to="/updateProfile">Update Profile</NavLink></li>
         <li><NavLink className={({ isActive }) =>
             isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
-        } to="/extra">Extra</NavLink></li>
+        } to="/register">Register</NavLink></li>
+
+        <li><NavLink className={({ isActive }) =>
+            isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
+        } to="/activities">Activities</NavLink></li>
+        {user && <li><NavLink className={({ isActive }) =>
+            isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
+        } to="/profileUpdate">Profile Update</NavLink></li>}
+
 
     </>
 
@@ -47,9 +49,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div>
-                    {user ? `${user.
-                        photoURL}` : ''}
+                <div className="w-10" title={user ? user.displayName
+                    : "Name not found"}>
+                    <img className="rounded-full" src={user ? user.photoURL : ""} alt="" />
                 </div>
                 {
                     user ?
