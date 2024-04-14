@@ -3,26 +3,29 @@ import { Link } from "react-router-dom";
 
 
 const SingleHomes = ({ home }) => {
-    const { image, estate_title, segment_name, description, status } = home
+    const { image, estate_title, segment_name, description, status,id } = home
     return (
-        <Link to={`/home/${home.id}`}>
-        <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img className="h-52 rounded-md" src={image} alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">{estate_title}</h2>
-                    <div className="flex ">
-                        <p className="text-xl "># {segment_name}</p>
-                        <p className="text-xl text-blue-500 flex gap-2 items-center"><FaHouse></FaHouse>{status}</p>
-                    </div>
-                    <p>{description}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn bg-blue-600 text-white">View Property</button>
-                    </div>
+        <div className="max-w-xs mx-auto mb-8">
+        <div className="relative bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
+            <img className="w-full h-56 object-cover object-center" src={image} alt={estate_title} />
+           
+            <div className="px-4 py-2">
+                <h2 className="text-gray-800 text-lg font-semibold">{estate_title}</h2>
+                <div className="flex items-center mt-2 text-gray-600">
+                    <FaHouse className="mr-1" />
+                    <span>{status}</span>
+                </div>
+                <p className="text-gray-600 text-sm mt-2">{description}</p>
+                
+                {/* Button at the bottom */}
+                <div className="mt-4 flex justify-end">
+                    <Link to={`/home/${id}`} className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">
+                        View Property
+                    </Link>
                 </div>
             </div>
         </div>
-        </Link>
+    </div>
     );
 };
 
