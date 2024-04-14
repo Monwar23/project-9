@@ -8,6 +8,7 @@ import DetailsHome from "../pages/DetailsHome";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateProfile from "../PrivateRoutes/UpdateProfilePrivate";
 import UpdateProfilePrivate from "../PrivateRoutes/UpdateProfilePrivate";
+import Extra from "../pages/Extra";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>,
             },
+            {
+                path:'/extra',
+                element:<Extra></Extra>
+            }
         ]
     },
 ]);
