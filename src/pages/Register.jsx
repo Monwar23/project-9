@@ -56,79 +56,44 @@ const Register = () => {
     }
 
     return (
-        <div  className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)`}}>
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div>
-                <h2 className="text-white font-bold text-center text-3xl my-10">Register Now !</h2>
-
-                <form onSubmit={handleSubmit(onSubmit)} className="md:3/4 lg:w-1/2 mx-auto">
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Name</span>
-                        </label>
-                        <input type="name" placeholder="Name" className="input input-bordered"
-                            {...register("Name", { required: true })} />
-                        {errors.Name && (
-                            <span className="text-red-500">This field is required</span>
-                        )}
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Photo URL</span>
-                        </label>
-                        <input type="text" placeholder="Photo URL" className="input input-bordered" {...register("image", { required: true })} />
-                        {errors.image && (
-                            <span className="text-red-500">This field is required</span>
-                        )}
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Email</span>
-                        </label>
-                        <input type="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
-                        {errors.email && (
-                            <span className="text-red-500">This field is required</span>
-                        )}
-                    </div>
-                    <div className="form-control relative">
-                        <label className="label">
-                            <span className="label-text text-white">Password</span>
-                        </label>
-                        <div className="relative">
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                placeholder="Password"
-                                className="input input-bordered w-full pr-10"
-                                {...register("password", { required: true })}
-                            />
-                            <span
-                                className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
-                                onClick={() => {
-                                    setShowPassword(!showPassword)
-                                }}
-                            >
-                                {
-                                    showPassword
-                                        ? <FaEyeSlash />
-                                        : <FaEye />
-                                }
-                            </span>
-                            {errors.password && (
-                                <span className="text-red-500">This field is required</span>
-                            )}
-                        </div>
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover text-white">Forgot password?</a>
-                        </label>
-                    </div>
-                    <div className="form-control mt-6">
-                        <button className="btn btn-primary">Register</button>
-                    </div>
-                </form>
-                <p className="text-center mt-4 text-white">Already have an Account ? Please <Link className="font-bold text-blue-600 btn" to='/login'>Login</Link></p>
+        <div className="relative overflow-hidden bg-gray-900 rounded-lg shadow-lg p-8">
+    <div className="absolute inset-0 bg-cover bg-center z-0" style={{backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)`}}></div>
+    <div className="hero-overlay absolute inset-0 bg-black opacity-50"></div>
+    <div className="relative z-10">
+        <h2 className="text-white font-bold text-center text-3xl mb-8">Register Now !</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
+            <div className="mb-4">
+                <label className="text-white">Name</label>
+                <input type="text" placeholder="Name" className="input input-bordered w-full" {...register("Name", { required: true })} />
+                {errors.Name && <span className="text-red-500">This field is required</span>}
             </div>
-            <ToastContainer></ToastContainer>
-        </div>
+            <div className="mb-4">
+                <label className="text-white">Photo URL</label>
+                <input type="text" placeholder="Photo URL" className="input input-bordered w-full" {...register("image", { required: true })} />
+                {errors.image && <span className="text-red-500">This field is required</span>}
+            </div>
+            <div className="mb-4">
+                <label className="text-white">Email</label>
+                <input type="email" placeholder="Email" className="input input-bordered w-full" {...register("email", { required: true })} />
+                {errors.email && <span className="text-red-500">This field is required</span>}
+            </div>
+            <div className="mb-4 relative">
+                <label className="text-white">Password</label>
+                <input type={showPassword ? "text" : "password"} placeholder="Password" className="input input-bordered w-full pr-10" {...register("password", { required: true })} />
+                <button className="absolute inset-y-0 right-0 flex items-center pr-3 focus:outline-none" onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <FaEyeSlash className="text-white" /> : <FaEye className="text-white" />}
+                </button>
+                {errors.password && <span className="text-red-500">This field is required</span>}
+            </div>
+            <div className="mb-4">
+                <button type="submit" className="btn btn-primary w-full">Register</button>
+            </div>
+        </form>
+        <p className="text-center text-white">Already have an account? <Link to='/login' className="text-blue-500 font-bold">Login here</Link></p>
+    </div>
+    <ToastContainer></ToastContainer>
+</div>
+
     );
 };
 

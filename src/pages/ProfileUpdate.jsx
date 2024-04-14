@@ -22,7 +22,7 @@ const ProfileUpdate = () => {
 
     return (
         <div className="bg-cover bg-center mt-10" style={{ backgroundImage: "url('https://i.ibb.co/HrCqbd1/Rustic-Mountain-Cabin-Retreat-Nicholas-Sonder-Architect-01-1-Kindesign.jpg')" }}>
-            <div className="max-w-md mx-auto p-8 bg-blue-800 bg-opacity-20">
+            <div className="max-w-md mx-auto p-8 bg-blue-800 bg-opacity-30">
                 <h2 className="text-2xl font-bold mb-4 text-white text-center">Edit Your Profile</h2>
                 <form className="space-y-4">
                     <div>
