@@ -25,13 +25,14 @@ const FirebaseProvider = ({children}) => {
       };
 
       const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
-            setLoading(true);
+            setLoading(false);
         })
         return () => {
             unSubscribe()

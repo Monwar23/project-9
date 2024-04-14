@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -9,6 +9,9 @@ import { useForm } from "react-hook-form";
 const Login = () => {
 
     const { signIn } = UseAuth()
+    const location=useLocation()
+    const navigate=useNavigate()
+
     const { register, handleSubmit, formState: { errors } ,reset} = useForm();
 
     const [showPassword, setShowPassword] = useState(false)
@@ -22,6 +25,8 @@ const Login = () => {
                 console.log(result.user);
                 toast.success("Login successful!");
                 reset()
+
+                navigate(location?.state? location.state:'/')
 
             })
             .catch(error => {

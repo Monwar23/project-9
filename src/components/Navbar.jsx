@@ -16,6 +16,12 @@ const Navbar = () => {
         <li><NavLink className={({ isActive }) =>
             isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
         } to="/">Home</NavLink></li>
+          <li><NavLink className={({ isActive }) =>
+            isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
+        } to="/register">Register</NavLink></li>
+          <li><NavLink className={({ isActive }) =>
+            isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
+        } to="/updateProfile">Update Profile</NavLink></li>
 
     </>
 

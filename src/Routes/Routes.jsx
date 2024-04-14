@@ -5,6 +5,9 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import DetailsHome from "../pages/DetailsHome";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import UpdateProfile from "../PrivateRoutes/UpdateProfilePrivate";
+import UpdateProfilePrivate from "../PrivateRoutes/UpdateProfilePrivate";
 
 const router = createBrowserRouter([
     {
@@ -19,12 +22,16 @@ const router = createBrowserRouter([
             },
             {
                 path:"/home/:id",
-                element:<DetailsHome></DetailsHome>,
+                element:<PrivateRoutes><DetailsHome></DetailsHome></PrivateRoutes>,
                 loader:()=>fetch('data.json')
             },
             {
                 path: '/login',
                 element: <Login></Login>,
+            },
+            {
+                path:'/updateProfile',
+                element:<UpdateProfilePrivate><UpdateProfile></UpdateProfile></UpdateProfilePrivate>
             },
             {
                 path: '/register',
