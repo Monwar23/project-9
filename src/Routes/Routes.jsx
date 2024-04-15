@@ -9,6 +9,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import PrivateProfile from "../PrivateRoutes/PrivateProfile";
 import ProfileUpdate from "../pages/ProfileUpdate";
 import About from "../pages/About";
+import Loans from "../pages/Loans";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About></About>
+            },
+            {
+                path: '/loans',
+                element: <PrivateRoutes><Loans></Loans></PrivateRoutes>
             },
             
         ]
