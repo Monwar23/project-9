@@ -1,6 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { MdLocationOn } from "react-icons/md";
 import { FaDollarSign ,FaSquare, FaInfoCircle} from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const DetailsHome = () => {
     const homes=useLoaderData()
@@ -11,7 +12,11 @@ const DetailsHome = () => {
     
 
     return (
-        <div className="max-w-md mx-auto my-10 bg-white rounded-xl overflow-hidden shadow-lg md:max-w-2xl">
+       <div>
+         <Helmet>
+                <title>HomeSpotter || DetailsHome</title>
+            </Helmet>
+         <div className="max-w-md mx-auto my-10 bg-white rounded-xl overflow-hidden shadow-lg md:max-w-2xl">
             <img src={image} alt={estate_title} className="w-full h-96 object-cover object-center" />
             <div className="p-6">
                 <div className="text-xl font-bold text-gray-800">{estate_title}</div>
@@ -41,6 +46,7 @@ const DetailsHome = () => {
                 </div>
             </div>
         </div>
+       </div>
     );
 };
 

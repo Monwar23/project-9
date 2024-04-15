@@ -6,9 +6,9 @@ import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import DetailsHome from "../pages/DetailsHome";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
-import Activities from "../pages/Activities";
 import PrivateProfile from "../PrivateRoutes/PrivateProfile";
 import ProfileUpdate from "../pages/ProfileUpdate";
+import About from "../pages/About";
 
 const router = createBrowserRouter([
     {
@@ -39,9 +39,10 @@ const router = createBrowserRouter([
                 element: <Register></Register>,
             },
             {
-                path:'/activities',
-                element:<Activities></Activities>
-            }
+                path: '/about',
+                element: <About></About>
+            },
+            
         ]
     },
 ]);

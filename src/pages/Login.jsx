@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import UseAuth from "../Hooks/UseAuth";
 import { useForm } from "react-hook-form";
 import SocialLogin from "../components/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 
@@ -40,7 +41,11 @@ const Login = () => {
 
 
     return (
-        <div className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)` }}>
+       <div>
+        <Helmet>
+                <title>HomeSpotter || Login</title>
+            </Helmet>
+         <div className="p-20 mt-20" style={{ backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)` }}>
             <div>
                 <h2 className="text-center font-bold  text-white text-3xl my-10">Login Now !</h2>
 
@@ -94,6 +99,7 @@ const Login = () => {
             </div>
             <ToastContainer></ToastContainer>
         </div>
+       </div>
     );
 };
 

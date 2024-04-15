@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import UseAuth from "../Hooks/UseAuth";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -59,7 +60,11 @@ const Register = () => {
     }
 
     return (
-        <div className="relative overflow-hidden bg-gray-900 rounded-lg shadow-lg p-8">
+   <div>
+     <Helmet>
+                <title>HomeSpotter || Register</title>
+            </Helmet>
+         <div className="relative overflow-hidden bg-gray-900 rounded-lg shadow-lg p-8">
     <div className="absolute inset-0 bg-cover bg-center z-0" style={{backgroundImage: `url(https://i.ibb.co/SQxMfff/Feature-Image-4.jpg)`}}></div>
     <div className="hero-overlay absolute inset-0 bg-black opacity-50"></div>
     <div className="relative z-10">
@@ -96,6 +101,7 @@ const Register = () => {
     </div>
     <ToastContainer></ToastContainer>
 </div>
+   </div>
 
     );
 };

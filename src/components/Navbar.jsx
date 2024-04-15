@@ -19,10 +19,10 @@ const Navbar = () => {
         <li><NavLink className={({ isActive }) =>
             isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
         } to="/register">Register</NavLink></li>
-
         <li><NavLink className={({ isActive }) =>
             isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
-        } to="/activities">Activities</NavLink></li>
+        } to="/about">About Us</NavLink></li>
+
         {user && <li><NavLink className={({ isActive }) =>
             isActive ? 'text-blue-600 border border-blue-600 font-semibold' : 'font-semibold'
         } to="/profileUpdate">Profile Update</NavLink></li>}
