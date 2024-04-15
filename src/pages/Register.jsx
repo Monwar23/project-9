@@ -43,7 +43,10 @@ const Register = () => {
                 toast.success("Registration successful!");
                 updateUserProfile(Name,image)
                 .then(()=>{
-                    navigate(location?.state? location.state:'/')
+                    setTimeout(()=>{
+                        navigate(location?.state? location.state:'/')
+                    },3000)
+                    
                 })
             })
             .catch(error => {

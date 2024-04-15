@@ -13,7 +13,7 @@ const Login = () => {
     const location=useLocation()
     const navigate=useNavigate()
 
-    const { register, handleSubmit, formState: { errors } ,reset} = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -25,7 +25,10 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success("Login successful!");
-                navigate(location?.state? location.state:'/')
+
+                setTimeout(()=>{
+                    navigate(location?.state? location.state:'/')
+                },3000)
 
             })
             .catch(error => {

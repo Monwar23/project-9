@@ -16,7 +16,10 @@ const SocialLogin = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success("Login successful!");
-                navigate(from)
+                setTimeout(()=>{
+                    navigate(from)
+                },3000)
+               
             })
             .catch(error => {
                 console.error(error);
