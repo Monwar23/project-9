@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css"
+import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaClock } from 'react-icons/fa';
 
 
 const About = () => {
@@ -46,7 +47,7 @@ const About = () => {
                         </form>
                     </div>
 
-                    <div className="w-full px-16 py-16 rounded-md  xl:col-span-3 bg-slate-50">
+                    <div className="w-full px-2 py-2 lg:py-16 rounded-md  xl:col-span-3 bg-slate-50">
                         <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
                             <TileLayer
                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -62,6 +63,15 @@ const About = () => {
                 </div>
             </div>
 
+            <div className="bg-gray-100 w-full mt-20 py-5">
+            <div className="max-w-md mx-auto p-8 rounded-md shadow-md bg-blue-100">
+                <h2 className="text-xl font-bold mb-4">Contact Us</h2>
+                <p className="flex items-center text-gray-700 mb-2"><FaMapMarkerAlt className="h-5 w-5 mr-2" />620 N LaSalle Dr, Chicago IL, 60654</p>
+                <p className="flex items-center text-gray-700 mb-2"><FaEnvelope className="h-5 w-5 mr-2" />620coworking@nextrealty.com</p>
+                <p className="flex items-center text-gray-700 mb-2"><FaPhone className="h-5 w-5 mr-2" />(312) 728-4143</p>
+                <p className="flex items-center text-gray-700"><FaClock className="h-5 w-5 mr-2" />Mo-Fr 9AM–5PM | Sa-Su Closed</p>
+            </div>
+        </div>
 
         </div>
     );
