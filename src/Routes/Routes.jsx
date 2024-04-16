@@ -20,12 +20,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader:()=>fetch('data.json')
+                loader:()=>fetch('/data.json')
             },
             {
                 path:"/home/:id",
                 element:<PrivateRoutes><DetailsHome></DetailsHome></PrivateRoutes>,
-                loader:()=>fetch('data.json')
+                loader:()=>fetch('/data.json')
             },
             {
                 path: '/login',
