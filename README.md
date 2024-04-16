@@ -19,3 +19,5 @@
 - [Animate.css](https://animate.style/)
 
 - [React Hook form](https://react-hook-form.com/)
+
+- [React Marquee](https://www.react-fast-marquee.com/)
