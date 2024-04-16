@@ -10,7 +10,7 @@ const Footer = () => {
             <aside>
                 <FaHouse className="text-6xl text-blue-600"></FaHouse>
                 <Link to="/" className=" text-xl font-medium"><span className="font-bold text-blue-600">Home</span>Spotter</Link>
-               <div className="flex gap-2">
+               <div className="flex gap-2 mt-10">
                <FaFacebookF className="text-lg"></FaFacebookF>
                 <FaTwitter className="text-lg"></FaTwitter>
                 <FaInstagram className="text-lg"></FaInstagram>
@@ -45,7 +45,7 @@ const Footer = () => {
             </nav>
             <nav className="text-black">
                 <h6 className="footer-title">ABOUT US</h6>
-                <a className="link link-hover">About Us</a>
+                <Link to='/about' className="link link-hover">About Us</Link>
                 <a className="link link-hover">Careers</a>
                 <a className="link link-hover">Contact Us</a>
                 <a className="link link-hover">Privacy Notice</a>

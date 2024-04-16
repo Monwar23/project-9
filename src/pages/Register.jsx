@@ -97,7 +97,7 @@ const Register = () => {
                 <button type="submit" className="btn btn-primary w-full">Register</button>
             </div>
         </form>
-        <p className="text-center text-white">Already have an account? <Link to='/login' className="text-blue-500 font-bold">Login here</Link></p>
+        <p className="text-center text-white">Already have an account? <Link to='/login' className="text-blue-500 font-bold">Login </Link></p>
     </div>
     <ToastContainer></ToastContainer>
 </div>

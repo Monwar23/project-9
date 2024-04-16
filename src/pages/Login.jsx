@@ -94,7 +94,9 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
-                <p className="text-center text-white mt-4">Do not have an Account ? Please <Link className="font-bold text-blue-600 btn " to='/register'>Register</Link></p>
+                <p className="text-center text-white mt-4">Do not have an Account ? <Link className="font-bold text-blue-600 " to='/register'>Register</Link></p>
+               
+                <p className="text-white border-b-2 mt-4 text-center pb-2">Sign In with</p>
                 <SocialLogin></SocialLogin>
             </div>
             <ToastContainer></ToastContainer>
