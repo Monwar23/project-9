@@ -1,6 +1,6 @@
 # HomeSpotter
 
-## Live URL : https://projects-9-8968a.web.app/
+## Live URL : https://homespotter.netlify.app/
 
 # Features 
 
