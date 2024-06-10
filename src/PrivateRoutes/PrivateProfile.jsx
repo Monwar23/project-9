@@ -8,7 +8,6 @@ const PrivateProfile = ({children}) => {
     if(loading){
         return <span className="loading loading-infinity loading-lg"></span>
     }
-
     if(user){
         return children
     }
